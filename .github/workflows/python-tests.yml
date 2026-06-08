@@ -1,0 +1,19 @@
+name: Run Python Test
+on: [push]
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6.0.3
+       
+      - name: Setup Python
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: '3.11'
+        
+      - name: install pytests
+        run: pip install pytest
+       
+      - name: run test 
+        run: pytest
